@@ -387,8 +387,7 @@ class DDPG(object):
         # TD3 has hyperparameter for how frequently to update actor policy and target networks
         if train_iter % self.td3_policy_freq == 0:
             self.sess.run(self.actor_target_soft_updates)
-
-        self.sess.run(self.critic_target_soft_updates)
+            self.sess.run(self.critic_target_soft_updates)
 
     def get_stats(self):
         if self.stats_sample is None:
